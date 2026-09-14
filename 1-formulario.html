@@ -20,7 +20,8 @@
         }
         body{
              font-family: "Quicksand", sans-serif;
-            margin: 0%
+            margin: 0%;
+            background-color: var(--white);
         }
         .login{ 
             width: 100%;
@@ -29,46 +30,39 @@
             place-items: center;
         }
         .form-container{ 
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            width: 350px;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
         }
         .logo{ 
             width: 150px;
             margin-bottom:48px;
             justify-self:center;
-            display:none;
+            display:block;
             
         }
-       .title{
-        font-size:var(--lg);
-        margin-bottom:12px;
-        text-align:center;
-       }
-       .subtitle{
-        color:var(--very-light-pink);
-        font-size:var(--md);
-        font-weight:300;
-        margin-top: 0;
-        text-align:center;
+        .form{
+        display:flex;
+        flex-direction: column;
        }
        .label{
         font-size: var(--sm);
         font-weight: bold;
         margin-bottom: 4px;
+        color: var(--black);
        }
        .input{
         background-color: var(--text-input-field);
+        border: none;
         border-radius: 8px;
         height: 30px;
         font-size: var(--md);
         padding: 6px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
        }
-       .form{
-        display:flex;
-        flex-direction: column;
-       }
+      .input-password{ 
+        margin-bottom: 24px;
+      }
        .primary-button{
         background-color: var(--hospital-green);
         border: none;
@@ -80,34 +74,65 @@
          height: 50px;
         
        }
-       .login-button{
-        margin-top: 14px;
-        margin-bottom: 30px;
-       }
-       @media (max-width:640){
-        .logo{
-            display:block;
+       .secondary-button {
+            background-color: var(--white);
+            border: 1px solid var(--hospital-green);
+            border-radius: 8px;
+            color: var(--hospital-green);
+            width: 100%;
+            font-size: var(--md);
+            font-weight: bold;
+            height: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: auto;
         }
-       }
+
+        .secondary-button:hover {
+            background-color: var(--text-input-field);
+        }
+
+        .forgot-password {
+            font-size: var(--sm);
+            color: var(--hospital-green);
+            text-decoration: none;
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        @media (min-width: 641px) {
+            .form-container {
+                width: 350px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="login">
-<div class="form-container">
- <img src="./Logo.jpeg" alt="imagendenegocio" class="logo"> 
-    <h1 class="titulo">create a new password</h1>
-<p class="subtitle">enter a new password for you account</p>
-<form action="/"class="form">
-    <label for="password" class="label">password </label>
-    <input type="password" class="input input-passw" id="pasword" placeholder="************">
+        <div class="form-container">
+            <img src="./Logo.jpeg" alt="logo" class="logo">
 
-     <label for="new-password" class="label">Re-enter password </label>
-    <input type="password" class="input input-passw" id="new-pasword" placeholder="************">
+            <form action="/" class="form">
+                <label for="email" class="label">Email address</label>
+                <input type="email" id="email" placeholder="************" class="input input-email">
 
-    <input type="submit" value="confirm"class=primary-button login-button>
-</form>
-</div>
+                <label for="password" class="label">Password</label>
+                <input type="password" id="password" placeholder="**************" class="input input-password">
+
+                <button type="submit" class="primary-button">Log in</button>
+            </form>
+
+            <a href="/" class="forgot-password">Forgot my password</a>
+
+            <button class="secondary-button">Sign up</button>
+        </div>
     </div>
-    
 </body>
 </html>
